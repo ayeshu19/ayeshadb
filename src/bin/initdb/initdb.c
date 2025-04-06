@@ -2050,7 +2050,7 @@ make_postgres(FILE *cmdfd)
 	 * Just as we did for template0, and for the same reasons, assign a fixed
 	 * OID to postgres and select the file_copy strategy.
 	 */
-	PG_CMD_PUTS("CREATE DATABASE SakthiDB OID = " CppAsString2(PostgresDbOid)
+	PG_CMD_PUTS("CREATE DATABASE postgres OID = " CppAsString2(PostgresDbOid)
 				" STRATEGY = file_copy;\n\n");
 	PG_CMD_PUTS("COMMENT ON DATABASE SakthiDB IS 'default administrative connection database';\n\n");
 }

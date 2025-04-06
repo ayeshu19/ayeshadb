@@ -109,7 +109,7 @@ sub clear_query
 {
 	local $Test::Builder::Level = $Test::Builder::Level + 1;
 
-	check_completion("\\r\n", qr/Query buffer reset.*SakthiDB=# /s,
+	check_completion("\\r\n", qr/Query buffer reset.*sakthidb=# /s,
 		"\\r works");
 	return;
 }
@@ -121,7 +121,7 @@ sub clear_line
 {
 	local $Test::Builder::Level = $Test::Builder::Level + 1;
 
-	check_completion("\025\n", qr/SakthiDB=# /, "control-U works");
+	check_completion("\025\n", qr/sakthidb=# /, "control-U works");
 	return;
 }
 
@@ -327,7 +327,7 @@ foreach (
 
 	check_completion(
 		"\\set COMP_KEYWORD_CASE $case\n",
-		qr/SakthiDB=#/,
+		qr/sakthidb=#/,
 		"set completion case to '$case'");
 	check_completion("alter table tab1 rename $in\t\t\t",
 		qr|$out|,
@@ -385,7 +385,7 @@ clear_query();
 # same, for qualified GUC names
 check_completion(
 	"DO \$\$begin end\$\$ LANGUAGE plpgsql;\n",
-	qr/SakthiDB=# /,
+	qr/sakthidb=# /,
 	"load plpgsql extension");
 
 check_completion("set plpg\t", qr/plpg\a?sql\./,
